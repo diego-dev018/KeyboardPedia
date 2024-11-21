@@ -1,0 +1,44 @@
+---
+interface Props {
+    active: string;
+}
+
+const { active } = Astro.props;
+
+const buttons = [
+    {
+        name: "Inicio",
+        href: "/",
+    },
+    {
+        name: "Categorias",
+        href: "/categories",
+    },
+    {
+        name: "Sobre nosotros",
+        href: "/about-us",
+    },
+]
+---
+
+<nav class="flex justify-between items-center px-28 py-10">
+    <h1 class="text-3xl font-extrabold cursor-default">
+        KeyBoardPedia
+    </h1>
+    <ul class="flex gap-4">
+        {
+            buttons.map(n => (
+                <li>
+                    <a 
+                    href={n.href} 
+                    class:list={[
+                        active === n.name ? "text-white" : "text-gray-400",
+                        "text-xl font-semibold py-1 px-2 rounded-xl hover:bg-slate-800 transition"
+                    ]}>
+                        {n.name}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>

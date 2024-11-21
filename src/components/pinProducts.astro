@@ -1,0 +1,33 @@
+---
+import CategoriesNav from "./categoriesNav.astro";
+import ProductCard from "./productCard.astro";
+import SectionContainer from "./sectionContainer.astro";
+import { products } from "../data/products";
+
+const products_this = [
+    "1",
+    "2",
+    "3",
+    "4",
+]
+
+const findProducts = products.filter(product => 
+    products_this.includes(product.id)
+);
+---
+
+<SectionContainer>
+    <CategoriesNav />
+    <div 
+    class="grid grid-cols-4 gap-4 pt-6">
+        {
+            findProducts.map(product => (
+                <ProductCard
+                    title={product?.title}
+                    description={product?.description}
+                    image_src={product.bg_img_src}
+                />
+            ))
+        }
+    </div>
+</SectionContainer>

@@ -1,0 +1,13 @@
+---
+interface Props {
+    extraClass?: string;
+}
+
+const { extraClass } = Astro.props;
+---
+
+<section
+class:list={["px-28 py-10 w-full", extraClass]}
+>
+    <slot />
+</section>
