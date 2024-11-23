@@ -3,13 +3,14 @@ interface Props {
     title?: string;
     description?: string;
     image_src: string;
+    extraClass?: string;
 }
 
-const { title, description, image_src } = Astro.props;
+const { title, description, image_src, extraClass } = Astro.props;
 ---
 
 <article
-class="w-full aspect-square bg-[size:100%] hover:bg-[size:105%] bg-center rounded-xl transition-all"
+class:list={["w-full aspect-square bg-[size:100%] hover:bg-[size:105%] bg-center rounded-xl transition-all", extraClass]}
 style=`background-image: url('${image_src}');`
 >
     <a
@@ -19,12 +20,12 @@ style=`background-image: url('${image_src}');`
     <p
     class="text-white/60 text-lg font-semibold"
     >
-        {title}
+        {description}
     </p>
     <h5
     class="text-white text-2xl font-bold"
     >
-        {description}
+        {title}
     </h5>
     </a>
 </article>

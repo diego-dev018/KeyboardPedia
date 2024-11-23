@@ -28,12 +28,12 @@ const buttons = [
     <ul class="flex gap-4">
         {
             buttons.map(n => (
-                <li>
+                <li class="hover:scale-105 transition">
                     <a 
                     href={n.href} 
                     class:list={[
                         active === n.name ? "text-white" : "text-gray-400",
-                        "text-xl font-semibold py-1 px-2 rounded-xl hover:bg-slate-800 transition"
+                        "text-xl font-semibold pb-1 px-2 rounded-xl hover:bg-slate-800 transition"
                     ]}>
                         {n.name}
                     </a>
@@ -41,4 +41,17 @@ const buttons = [
             ))
         }
     </ul>
+    <form
+    class="flex gap-2"
+    action=""
+    >
+        <input
+        type="text"
+        class="rounded-lg outline-none w-64 bg-slate-500 py-2 px-3 opacity-65 focus:opacity-100 transition">
+        <button
+        class="rounded-lg bg-slate-800 hover:scale-105 text-white py-2 px-4 opacity-65 hover:opacity-100 font-semibold transition"
+        >
+            Buscar
+        </button>
+    </form>
 </nav>
