@@ -1,0 +1,67 @@
+---
+import SectionContainer from "@/components/sectionContainer.astro";
+import { keyboardsToGalery } from "@/data/keyboardsToGalery";
+
+const arrows = [
+    {
+        direction: "left",
+        icon: "fa-solid fa-circle-arrow-left"
+    },
+    {
+        direction: "right",
+        icon: "fa-solid fa-circle-arrow-right"
+    }
+]
+---
+
+<SectionContainer extraClass="!px-[90px] !py-0 !mb-20">  <!-- px-28 py-10 -->
+    <ul class="flex gap-8 overflow-x-scroll px-[12px] py-5 keyboard-galery">
+        {
+            keyboardsToGalery.map(n => (
+                <li class="hover:scale-105 rounded-xl transition-all">
+                    <div 
+                    style={`background-image: url('${n}');`}
+                    class="aspect-square w-[400px] rounded-xl hover:border-2 bg-center bg-cover transition-all"
+                    />
+                </li>
+            ))
+        }
+    </ul>
+    <ol class="hidden md:flex justify-center gap-6">
+        {
+            arrows.map(n => (
+                <li>
+                    <button class="hover:scale-110 active:scale-100 transition" id={`button-galery-${n.direction}`}>
+                        <i class:list={["text-[2.6rem] rounded-full galery-button-all transition", n.icon]}></i>
+                    </button>
+                </li>
+            ))
+        }
+    </ol>
+</SectionContainer>
+
+<style>
+    .keyboard-galery {
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+    }
+    .keyboard-galery li:hover, .galery-button-all:hover {
+        box-shadow: white 0px 0px 10px 0px;
+    }
+</style>
+
+<script>
+    const galery = document.querySelector(".keyboard-galery");
+    const buttonRight = document.querySelector("#button-galery-right");
+    const buttonLeft = document.querySelector("#button-galery-left");
+
+    const scrollVelocity = 800;
+
+    buttonRight?.addEventListener("click", () => {
+        galery ? (galery.scrollLeft += scrollVelocity) : "";
+    })
+
+    buttonLeft?.addEventListener("click", () => {
+        galery ? (galery.scrollLeft -= scrollVelocity) : "";
+    })
+</script>

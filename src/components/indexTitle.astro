@@ -8,16 +8,16 @@ interface Props {
 const { h1_class } = Astro.props;
 ---
 <SectionContainer>
-    <h1 class:list={["flex flex-col gap-5 text-3xl text-center font-semibold", h1_class]}>
+    <h1 class:list={["flex flex-col gap-5 text-4xl text-center font-semibold", h1_class]}>
         Encuentra
-        <cite class="not-italic text-[4rem] font-extrabold">
+        <cite class="not-italic text-[5rem] my-4 font-extrabold">
             Toda la informacion
         </cite> 
         <cite class="text-purple-500">
             sobre Teclados Mecanicos
         </cite>
     </h1>
-    <p class="text-center text-2xl mt-8 px-10">
+    <p class="text-2xl mt-10 max-w-[950px] text-pretty mx-auto text-center">
         Descubre por qué los teclados mecánicos son la elección preferida para gamers, profesionales y entusiastas. Desde interruptores únicos hasta diseños personalizables, aquí encontrarás todo lo que necesitas saber para elegir el teclado perfecto para ti. ¡Mejora tu experiencia al escribir o jugar!
     </p>
 </SectionContainer>

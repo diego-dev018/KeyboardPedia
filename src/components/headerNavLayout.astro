@@ -30,12 +30,12 @@ const buttons = [
     <ul class="flex gap-4">
         {
             buttons.map(n => (
-                <li class="hover:scale-105 transition">
+                <li class="hover:scale-110 transition">
                     <a 
                     href={n.href} 
                     class:list={[
                         active === n.name ? "text-white" : "text-gray-400",
-                        "text-xl font-semibold pb-1 px-2 rounded-xl hover:bg-slate-800 transition"
+                        "text-xl font-semibold pb-1 px-2 rounded-xl border-[1px] border-slate-700 hover:border-slate-500 hover:bg-slate-800 transition"
                     ]}>
                         {n.name}
                     </a>

@@ -3,6 +3,7 @@ import IndexStartingSearch from '@/components/indexStartingSearch.astro';
 import IndexTitle from '@/components/indexTitle.astro';
 import SectionVideo from '@/components/sectionVideo.astro';
 import Layout from '@/layouts/Layout.astro';
+import KeyboardsGalery from '@/components/keyboardsGalery.astro';
 ---
 
 <Layout
@@ -12,8 +13,9 @@ headerNavActive="Inicio"
 >
 	<div class="py-20">
 		<IndexTitle />
-		<SectionVideo video_id="cxp_hlfMxbk" />
+		<SectionVideo extraClassVideo="shadow-white border-slate-600 border-[1px] hover:border-4 transition-all" video_id="N_psXRtVgAQ" />
 		<IndexStartingSearch />
+		<KeyboardsGalery />
 	</div>
 </Layout>
 

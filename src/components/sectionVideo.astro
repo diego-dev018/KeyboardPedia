@@ -11,7 +11,7 @@ const { video_id, extraClassVideo, extraClass } = Astro.props;
 ---
 
 <SectionContainer>
-    <div class={extraClass}>
+    <div class:list={["", extraClass]}>
         <lite-youtube
         class:list={[
             "rounded-2xl aspect-video max-w-[1000px] mx-auto",
