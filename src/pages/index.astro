@@ -1,25 +1,20 @@
 ---
-import HeaderNavLayout from '@/components/headerNavLayout.astro';
-import MyFooter from '@/components/myFooter.astro';
-import PinProducts from '@/components/pinProducts.astro';
+import IndexStartingSearch from '@/components/indexStartingSearch.astro';
+import IndexTitle from '@/components/indexTitle.astro';
+import SectionVideo from '@/components/sectionVideo.astro';
 import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout
 title="Welcome to Astro."
 description=""
+headerNavActive="Inicio"
 >
-	<main>
-		<header
-		class="w-full h-[35rem]"
-		>
-			<HeaderNavLayout
-			active="Inicio"
-			/>
-		</header>
-		<PinProducts />
-		<MyFooter />
-	</main>
+	<div class="py-20">
+		<IndexTitle />
+		<SectionVideo video_id="cxp_hlfMxbk" />
+		<IndexStartingSearch />
+	</div>
 </Layout>
 
 <style>
