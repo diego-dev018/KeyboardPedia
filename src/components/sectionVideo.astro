@@ -3,11 +3,11 @@ import SectionContainer from "@/components/sectionContainer.astro"
 
 interface Props {
     video_id: string;
-    extraClassVideo?: string;
+    className?: string;
     extraClass?: string;
 }
 
-const { video_id, extraClassVideo, extraClass } = Astro.props;
+const { video_id, className, extraClass } = Astro.props;
 ---
 
 <SectionContainer>
@@ -15,7 +15,7 @@ const { video_id, extraClassVideo, extraClass } = Astro.props;
         <lite-youtube
         class:list={[
             "rounded-2xl aspect-video max-w-[1000px] mx-auto",
-            extraClassVideo,
+            className,
         ]}
         videoid={video_id}
         ></lite-youtube>
