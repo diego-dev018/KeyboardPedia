@@ -5,7 +5,7 @@ import { categoriesForPage } from "@/data/categories";
 
 <SectionContainer extraClass="!py-0 !mb-0 !mt-0 w-full">
     <ul
-    class="flex gap-8 flex-wrap w-full justify-between"
+    class="grid grid-cols-4 gap-y-6 w-full justify-between"
     >
         {
             categoriesForPage.map(n => (
@@ -14,7 +14,7 @@ import { categoriesForPage } from "@/data/categories";
                     href={n.href}
                     >
                         <div 
-                        class:list={["flex items-center justify-center aspect-square w-[400px] rounded-xl hover:border-2 bg-center bg-cover transition-all",
+                        class:list={["flex items-center justify-center aspect-square max-w-[400px] rounded-xl hover:border-2 border-slate-400 bg-center bg-cover transition-all",
                             n.bg_img ? "" : "bg-slate-600"
                         ]}
                         style={`background-image: url('${n.bg_img}');`}
