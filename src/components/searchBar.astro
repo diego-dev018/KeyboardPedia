@@ -1,15 +1,15 @@
 ---
 interface Props {
-    extraClass?: string;
+    className?: string;
     extraInputClass?: string;
     extraButtonClass?: string;
 }
 
-const { extraClass, extraInputClass, extraButtonClass } = Astro.props;
+const { className, extraInputClass, extraButtonClass } = Astro.props;
 ---
 
 <form
-class:list={["flex gap-2", extraClass]}
+class:list={["flex gap-2", className]}
 action="/search"
 method="GET"
 >

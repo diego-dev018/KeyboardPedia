@@ -7,10 +7,11 @@ interface Props {
 
 const { h1_class } = Astro.props;
 ---
+
 <SectionContainer>
-    <h1 class:list={["flex flex-col gap-5 text-4xl text-center font-semibold", h1_class]}>
+    <h1 class:list={["flex flex-col sm:gap-2 lg:gap-0 text-4xl text-center font-semibold", h1_class]}>
         Encuentra
-        <cite class="not-italic text-[5rem] my-4 font-extrabold">
+        <cite class="leading-[80px] lg:leading-tight not-italic text-[4rem] md:text-[5rem] my-4 md:my-0 font-extrabold">
             Toda la informacion
         </cite> 
         <cite class="text-purple-500">
