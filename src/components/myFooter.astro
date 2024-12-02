@@ -1,6 +1,9 @@
 ---
 import SectionContainer from "@/components/sectionContainer.astro";
-import { me } from "@/data/me";
+import Linkedin from "./icons/linkedin.astro";
+import IconsLink from "./iconsLink.astro";
+import Github from "./icons/github.astro";
+import Youtube from "./icons/youtube.astro";
 ---
 
 <SectionContainer
@@ -25,18 +28,18 @@ className="flex flex-col gap-5 md:flex-row md:gap-0 !mt-0 !mb-0 bg-gray-800 bg-o
             target="_blank"
             >Diego Sánchez</a>
         </h4>
-        <div class="flex justify-between text-xl py-2 font-semibold">
-            {
-                me.socialNetworks.map((social) => (
-                    <a
-                    class="hover:text-blue-300 hover:scale-105 border-b-[1px] border-b-slate-800 hover:border-b-slate-400 transition"
-                    href={social.url}
-                    target="_blank"
-                    >
-                        {social.name}
-                    </a>
-                ))
-            }
-        </div>
+<!--         <div class="py-2 font-semibold">
+            <ul class="flex justify-around pt-2">
+                <IconsLink href="/github">
+                    <Linkedin size="30" />
+                </IconsLink>
+                <IconsLink href="/github">
+                    <Youtube width="38" height="31" />
+                </IconsLink>
+                <IconsLink href="/github">
+                    <Github width="28" height="29" />
+                </IconsLink>
+            </ul>
+        </div> -->
     </div>
 </SectionContainer>
