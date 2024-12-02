@@ -2,12 +2,19 @@
 import SearchBar from "@/components/searchBar.astro";
 import SectionContainer from "@/components/sectionContainer.astro";
 import SubtitleContainer from "@/components/subtitleContainer.astro";
+
+interface Props {
+    className?: string;
+    classSubtitle?: string;
+}
+
+const { className, classSubtitle } = Astro.props;
 ---
 
-<SectionContainer>
+<SectionContainer className={className}>
     <SubtitleContainer
     subtitle="Empieza a Buscar"
-    extraClass="mx-auto"
+    extraClass={`mx-auto ${classSubtitle}`}
     icon="fas fa-search"
     />
     <SearchBar
