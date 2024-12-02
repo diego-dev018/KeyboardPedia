@@ -1,6 +1,7 @@
 ---
 import SectionContainer from "@/components/sectionContainer.astro";
 import { keyboardsToGalery } from "@/data/keyboardsToGalery";
+import SubtitleContainer from "./subtitleContainer.astro";
 
 const arrows = [
     {
@@ -15,6 +16,7 @@ const arrows = [
 ---
 
 <SectionContainer className="!px-0 md:!px-[90px] !py-0 !mb-20">  <!-- px-28 py-10 -->
+    <SubtitleContainer subtitle="Mira lo que puedes hacer!" className="mx-auto"  />
     <ul class="flex px-5 gap-8 overflow-x-scroll md:py-5 keyboard-galery snap-x snap-mandatory">
         {
             keyboardsToGalery.map(n => (

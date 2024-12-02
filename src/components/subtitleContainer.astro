@@ -1,14 +1,14 @@
 ---
 interface Props {
     subtitle: string;
-    extraClass?: string;
+    className?: string;
     icon?: string;
 }
 
-const { subtitle, extraClass, icon } = Astro.props;
+const { subtitle, className, icon } = Astro.props;
 ---
 
-<h3 class:list={["flex items-center gap-4 text-4xl font-bold w-fit text-yellow-200 py-4", extraClass]}
+<h3 class:list={["flex items-center gap-4 text-4xl font-bold w-fit text-yellow-200 py-4", className]}
 >
     {subtitle}
     <i
