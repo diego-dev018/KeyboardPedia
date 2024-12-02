@@ -14,11 +14,11 @@ const { className, classSubtitle } = Astro.props;
 <SectionContainer className={className}>
     <SubtitleContainer
     subtitle="Empieza a Buscar"
-    extraClass={`mx-auto ${classSubtitle}`}
+    extraClass={`mx-auto !text-[3rem] !pb-5 ${classSubtitle}`}
     icon="fas fa-search"
     />
     <SearchBar
-    className="flex !gap-4 max-w-[1000px] mx-auto"
+    className="flex !gap-4 mx-auto"
     extraInputClass="!w-full h-[100px] text-2xl font-bold !px-8"
     extraButtonClass="!w-[200px] h-[100px] text-2xl"
     />
