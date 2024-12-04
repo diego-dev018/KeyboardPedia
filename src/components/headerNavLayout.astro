@@ -1,4 +1,5 @@
 ---
+import { undefined } from 'astro:schema';
 import SearchBar from './searchBar.astro';
 
 interface Props {
@@ -10,15 +11,16 @@ const { active } = Astro.props;
 const buttons = [
     {
         name: "Inicio",
-        href: "/",
+        href: active == "Inicio" ? null : "/",
     },
-/*     {
+    {
         name: "Categorias",
-        href: "/categories",
-    }, */
+        // href: "",
+        cursor: "not-allowed",
+    },
     {
         name: "Sobre nosotros",
-        href: "/about-us",
+        href: active == "Sobre nosotros" ? null : "/about-us",
     },
 ]
 ---
@@ -30,12 +32,12 @@ const buttons = [
     <ul class="flex lg:flex-row gap-6 lg:gap-4">
         {
             buttons.map(n => (
-                <li class="hover:scale-110 transition w-fit mx-auto">
-                    <a 
-                    href={n.href} 
+                <li class={`hover:scale-110 transition w-fit mx-auto`}>
+                    <a
+                    href={n.href}
                     class:list={[
                         active === n.name ? "text-white" : "text-gray-400",
-                        "text-xl font-semibold pb-2 pt-1 px-4 rounded-xl border-[1px] border-slate-700 hover:border-slate-500 hover:bg-slate-800 transition"
+                        "text-xl font-semibold pb-2 pt-1 px-4 rounded-xl border-[1px] border-slate-700 hover:border-slate-500 hover:bg-slate-800 transition", n.cursor ? `cursor-${n.cursor}` : "cursor-pointer",
                     ]}>
                         {n.name}
                     </a>
