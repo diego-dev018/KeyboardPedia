@@ -1,0 +1,58 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SectionContainer from "@/components/sectionContainer.astro";
+import TextCite from "@/components/textCite.astro";
+import { myExample } from "@/data/productExample";
+
+const theParams = Astro.params['product'];
+
+const info = myExample.find((product) => product.id === theParams);
+
+if (!info) {
+    return Astro.redirect('/404', 404);
+}
+---
+
+<Layout
+title={info.title}
+description={info.short_description}
+headerNavActive="none"
+>
+<SectionContainer className="flex flex-col lg:flex-row gap-4 w-full !mb-10">
+    <div class="flex flex-col gap-4">
+        <div
+        style={`background-image: url('${info.images[0]}');`}
+        class="w-[30rem] aspect-[14/9] bg-center bg-cover rounded-xl bg-slate-100"
+        />
+        <div class="grid grid-cols-2 gap-4">
+            {
+                info.images.map((img) => (
+                    <div
+                    style={`background-image: url('${img}');`}
+                    class="aspect-square bg-center bg-[size:180%] hover:bg-[size:200%] rounded-xl bg-slate-100 transition-all cursor-pointer"
+                    />
+                ))
+            }
+        </div>
+    </div>
+    <div class="flex flex-col gap-5 w-fit">
+        <h1 class="text-4xl text-yellow-200 font-bold">
+            {info.title}
+        </h1>
+        <ul class="flex flex-col gap-4 opacity-80">
+            {
+                info.description.map((p) => (
+                    <li>
+                        <h2 class="text-2xl font-semibold">
+                            {p.title}
+                        </h2>
+                        <p class="text-lg">
+                            {p.content}
+                        </p>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+    </SectionContainer>
+</Layout>
