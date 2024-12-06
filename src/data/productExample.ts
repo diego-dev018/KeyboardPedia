@@ -37,14 +37,18 @@ export const myExample = [
             'https://store.nategentile.com/cdn/shop/files/teclado5.jpg',
         ],
         by: 'Nate Gentile',
-        price: {
-            mxn: 7627.00,
-            usd: 381.35,
-            eur: 320.00
-        },
-        page_seller: 'https://store.nategentile.com/products/teclado-nate-gentile-cycle-n8-founder-s-edition',
+        pages_seller: [
+            {
+                name: 'Nate Store',
+                url: 'https://store.nategentile.com/products/teclado-nate-gentile-cycle-n8-founder-s-edition',
+            }
+        ],
         stock: 0,
-        tags: [
+        content_tags: [
+            'By Nate Gentile',
+            'Cycle N8',
+        ],
+        search_tags: [
             'teclado',
             'nate-gentile',
             'cycle-n8',
@@ -52,6 +56,6 @@ export const myExample = [
             'by-youtube-creator',
             'by-streamer',
             'by-influencer',
-        ]
+        ],
     }
 ]

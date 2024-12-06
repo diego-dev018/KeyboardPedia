@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import SectionContainer from "@/components/sectionContainer.astro";
-import TextCite from "@/components/textCite.astro";
 import { myExample } from "@/data/productExample";
 
 const theParams = Astro.params['product'];
@@ -18,41 +17,89 @@ title={info.title}
 description={info.short_description}
 headerNavActive="none"
 >
-<SectionContainer className="flex flex-col lg:flex-row gap-4 w-full !mb-10">
-    <div class="flex flex-col gap-4">
-        <div
-        style={`background-image: url('${info.images[0]}');`}
-        class="w-[30rem] aspect-[14/9] bg-center bg-cover rounded-xl bg-slate-100"
-        />
-        <div class="grid grid-cols-2 gap-4">
-            {
-                info.images.map((img) => (
-                    <div
-                    style={`background-image: url('${img}');`}
-                    class="aspect-square bg-center bg-[size:180%] hover:bg-[size:200%] rounded-xl bg-slate-100 transition-all cursor-pointer"
-                    />
-                ))
-            }
+<SectionContainer className=" w-full !mb-10">
+    <div class="flex flex-col lg:flex-row gap-4">
+        
+        <div class="flex flex-col gap-4 h-[810px]">
+            <div
+            style={`background-image: url('${info.images[0]}');`}
+            class="w-[30rem] aspect-[14/9] bg-center bg-cover rounded-xl bg-slate-100"
+            />
+            <div
+            id="gallery"
+            class="grid grid-cols-2 gap-3 rounded-xl overflow-y-scroll"
+            >
+                {
+                    info.images.map((img) => (
+                        <div
+                        style={`background-image: url('${img}');`}
+                        class="aspect-square bg-center bg-[size:180%] hover:bg-[size:200%] rounded-xl bg-slate-100 transition-all cursor-pointer"
+                        />
+                    ))
+                }
+            </div>
+        </div>
+        <div class="flex flex-col gap-5 h-[810px]">
+            <div>
+                <h1 class="text-[2.8rem] text-yellow-200 font-bold">
+                    {info.title}
+                </h1>
+                <div class="flex gap-2 pt-2">
+                    {
+                        info.content_tags.map(tag => (
+                            <span class="text-sm bg-slate-800 text-slate-100 font-semibold px-3 pb-2 pt-1 rounded-xl cursor-default">
+                                {tag}
+                            </span>
+                        ))
+                    }
+                </div>
+            </div>
+            <div
+            id="info_container"
+            class="overflow-y-scroll h-[100%] rounded-lg"
+            >
+                <ul class="flex flex-col gap-4 opacity-80">
+                    {
+                        info.description.map((p) => (
+                            <li>
+                                <h2 class="text-2xl font-semibold">
+                                    {p.title}
+                                </h2>
+                                <p class="text-lg">
+                                    {p.content}
+                                </p>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="flex flex-col gap-5 w-fit">
-        <h1 class="text-4xl text-yellow-200 font-bold">
-            {info.title}
-        </h1>
-        <ul class="flex flex-col gap-4 opacity-80">
-            {
-                info.description.map((p) => (
-                    <li>
-                        <h2 class="text-2xl font-semibold">
-                            {p.title}
-                        </h2>
-                        <p class="text-lg">
-                            {p.content}
-                        </p>
-                    </li>
-                ))
-            }
-        </ul>
+    <div class="flex justify-around">
+        <div class="flex flex-col gap-2 items-center pt-16">
+            <h3 class="text-3xl font-bold">{info.pages_seller.length > 1 ? 'Todos los vendedores' : 'Vendedor'}</h3>
+            <ul>
+                {
+                    info.pages_seller.map(seller => (
+                        <li class="px-3 pb-2 pt-1 text-xl font-semibold bg-slate-800 text-slate-100 hover:bg-slate-700 rounded-lg transition duration-500">
+                            <a
+                            class="pb-[1px] border-b-[1px] border-b-slate-800 hover:border-b-yellow-200 transition-all duration-500"
+                            href={seller.url} 
+                            target="_blank"
+                            >
+                                {seller.name}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
     </div>
-    </SectionContainer>
+</SectionContainer>
 </Layout>
+
+<style>
+    #gallery, #info_container {
+        scrollbar-width: none;
+    }
+</style>
