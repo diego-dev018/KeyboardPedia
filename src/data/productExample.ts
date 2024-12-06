@@ -4,10 +4,6 @@ export const myExample = [
         title: 'Teclado Nate Gentile Cycle N8 - Founders Edition',
         description: [
             {
-                title: 'Pre-venta: Entrega estimada en Marzo de 2025',
-                content: 'Este exclusivo teclado mecánico, fabricado en aluminio 6063-T6 y acero inoxidable, es una edición limitada de solo 500 unidades, creada para conmemorar el lanzamiento de la marca "N8" de Nate Gentile. Una pieza única que combina elegancia y funcionalidad, lista para usar desde el momento en que la sacas de la caja.'
-            },
-            {
                 title: 'Diseño TKL para Espacios Modernos',
                 content: 'El Teclado Cycle N8 es TKL (Ten-Key-Less), lo que significa que no tiene la zona numérica del teclado. Esto está pensado para maximizar el espacio en tu escritorio y tener así más rango de movimiento con el ratón, algo especialmente beneficioso en videojuegos. Su diseño compacto y minimalista lo hace perfecto para setups modernos, optimizando el flujo y la estética de tu espacio de trabajo.'
             },
@@ -26,6 +22,24 @@ export const myExample = [
             {
                 title: 'Versatilidad y Estilo en Cada Pulsación',
                 content: 'Ideal para gaming, escritura y programación, el Teclado N8 Cycle – Founder’s Edition añade un toque de distinción y minimalismo a cualquier setup. Es mucho más que un teclado: es una declaración de estilo y calidad que eleva tu escritorio al siguiente nivel.'
+            },
+        ],
+        include: [
+            {
+                title: 'Cable USB-C',
+                content: 'Para conectar el teclado de inmediato y disfrutar de una experiencia plug & play sin complicaciones.'
+            },
+            {
+                title: 'Cable USB-C',
+                content: 'Para conectar el teclado de inmediato y disfrutar de una experiencia plug & play sin complicaciones.'
+            },
+            {
+                title: 'Cable USB-C',
+                content: 'Para conectar el teclado de inmediato y disfrutar de una experiencia plug & play sin complicaciones.'
+            },
+            {
+                title: 'Cable USB-C',
+                content: 'Para conectar el teclado de inmediato y disfrutar de una experiencia plug & play sin complicaciones.'
             },
         ],
         short_description: 'Este es un producto de ejemplo',
@@ -57,5 +71,6 @@ export const myExample = [
             'by-streamer',
             'by-influencer',
         ],
+        recolected_opinion: 5,
     }
 ]
