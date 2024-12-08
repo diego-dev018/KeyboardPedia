@@ -6,11 +6,11 @@ import TextCite from '@/components/textCite.astro';
 
 const links = [
     {
-        name: "Portfolio",
+        name: "Mi Portfolio",
         url: "https://www.diego18.pro/",
     },
     {
-        name: "Repositorio",
+        name: "Repositorio del Proyecto",
         url: "https://github.com/diego-dev018/KeyboardPedia",
     },
 ]
@@ -22,25 +22,8 @@ description="Descripcion sobre las metas y objetivos de la pagina. Ademas de con
 headerNavActive="Sobre nosotros"
 >
     <SectionContainer className="flex flex-col lg:flex-row gap-4 w-full !mb-10">
-        <div class="flex mx-auto lg:mx-0 gap-2 flex-col">
-            <div
-            style="background-image: url('/FotoDePerfil.JPEG');"
-            class="w-80 aspect-[9/11] bg-center bg-cover rounded-xl bg-slate-100 blur-md"
-            />
-            {
-                links.map((link) => (
-                    <a
-                    href={link.url}
-                    class="text-xl bg-slate-800 hover:bg-slate-700 rounded-xl text-center font-semibold px-2 pt-2 pb-3 z-10 transition"
-                    target="_blank"
-                    >
-                        {link.name}
-                    </a>
-                ))
-            }
-        </div>
         <div>
-            <p class="text-xl font-medium z-10">
+            <p class="text-xl xl:text-2xl font-medium">
                 Hola, mi nombre es <TextCite>Diego Sánchez,</TextCite>y estoy emocionado de compartir un poco sobre mí y mis intereses contigo. Actualmente, soy estudiante de <TextCite>Ingeniería en Desarrollo de Software,</TextCite> un campo que me apasiona.<br><br>
 
                 Decidí emprender este proyecto como una forma de explorar y compartir uno de mis grandes intereses en el mundo de la tecnología: <TextCite>Los teclados mecánicos personalizados.</TextCite>Aunque no soy un experto ni tengo una extensa colección, este tema me resulta fascinante. Hay algo especial en la posibilidad de personalizar completamente un teclado según tus necesidades, preferencias y estilo personal.<br><br>
@@ -51,9 +34,26 @@ headerNavActive="Sobre nosotros"
 
                 Espero que disfrutes explorando esta parte de mi portafolio y que encuentres información interesante que te inspire a conocer más sobre este fascinante hobby.<br><br>
 
-                <TextCite>Si deseas apoyar a este proyecto, puedes hacerlo a través de una contribucion monetarea o sobre la data.</TextCite>
+                <TextCite>Si deseas apoyar a este proyecto, puedes hacerlo a través de una contribucion monetarea o sobre la informacion.</TextCite>
             </p>
         </div>
+    </SectionContainer>
+    <SectionContainer
+    className="!py-0 !mb-2 !mt-0"
+    >
+        <ul class="flex gap-2 justify-between">
+            {
+                links.map((link) => (
+                    <a
+                    href={link.url}
+                    class="text-xl bg-slate-800 hover:bg-slate-700 rounded-xl text-center font-semibold w-full py-3 hover:scale-[1.01] transition"
+                    target="_blank"
+                    >
+                        {link.name}
+                    </a>
+                ))
+            }
+        </ul>
     </SectionContainer>
     <SectionContainer className="flex w-full !pt-0 !py-0 !mt-0 !mb-0">
         <a
@@ -61,12 +61,12 @@ headerNavActive="Sobre nosotros"
         href="/"
         target="_blank"
         >
-            <p class="hover:scale-105 hover:text-yellow-200 py-2 transition">
+            <p class="hover:scale-105 lg:hover:scale-110 hover:text-yellow-200 py-2 lg:py-4 transition">
                 Donar
             </p>
         </a>
     </SectionContainer>
     <p
     onclick="this.classList.add('!opacity-0');"
-    class="w-fit mx-auto !mt-0 !mb-12 font-semibold opacity-55 animate-bounce italic py-4 cursor-default transition">Gracias :)</p>
+    class="w-fit mx-auto !mt-0 !mb-12 font-semibold opacity-55 animate-bounce italic py-6 cursor-default transition">Gracias :)</p>
 </Layout>
