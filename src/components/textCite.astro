@@ -1,3 +1,11 @@
-<cite class="not-italic text-yellow-200">
+---
+interface Props {
+    color?: string;
+}
+
+const { color } = Astro.props;
+---
+
+<cite class:list={["not-italic", `${color ? `text-${color}` : 'text-yellow-200'}`]}>
     <slot />
 </cite>
