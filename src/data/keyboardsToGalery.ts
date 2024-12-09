@@ -1,9 +1,9 @@
-const directory = 'keyboardsToGalery';
+const dirMain = '/info'
 
 export const keyboardsToGalery = [
-    `${directory}/TecladoCustom(1).webp`,
-    `${directory}/TecladoCustom(2).webp`,
-    `${directory}/TecladoCustom(3).webp`,
-    `${directory}/TecladoCustom(4).webp`,
-    `${directory}/TecladoCustom(5).webp`,
+    {
+        id: 1,
+        img: `https://store.nategentile.com/cdn/shop/files/teclado5.jpg`,
+        href: `${dirMain}/nate-gentile-cycle-n8-founders-edition`,
+    },
 ];

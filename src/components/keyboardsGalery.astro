@@ -20,11 +20,17 @@ const arrows = [
     <ul class="flex px-5 gap-8 overflow-x-scroll md:py-5 keyboard-galery snap-x snap-mandatory">
         {
             keyboardsToGalery.map(n => (
-                <li class="md:hover:scale-105 rounded-xl transition-all snap-center">
-                    <div
-                    style={`background-image: url('${n}');`}
-                    class="aspect-square min-w-[350px] rounded-xl md:hover:border-2 bg-center bg-cover transition-all"
-                    />
+                <li 
+                class="md:hover:scale-105 rounded-xl transition-all snap-center"
+                >
+                    <a
+                    href={n.href}
+                    >
+                        <div
+                        style={`background-image: url('${n.img}');`}
+                        class="aspect-square min-w-[350px] rounded-xl md:hover:border-2 bg-center bg-cover transition-all"
+                        />
+                    </a>
                 </li>
             ))
         }
