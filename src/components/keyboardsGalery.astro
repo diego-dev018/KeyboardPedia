@@ -16,7 +16,9 @@ const arrows = [
 ---
 
 <SectionContainer className="!px-0 md:!px-[90px] !py-0 !mb-20">  <!-- px-28 py-10 -->
-    <SubtitleContainer subtitle="Mira lo que puedes hacer!" className="mx-auto !py-0"  />
+    <SectionContainer className="!m-0 !py-0 !pb-4">
+        <SubtitleContainer subtitle="Mira lo que puedes hacer!" className="mx-auto !py-0"  />
+    </SectionContainer>
     <ul class="flex px-5 gap-8 overflow-x-scroll md:py-5 keyboard-galery snap-x snap-mandatory">
         {
             keyboardsToGalery.map(n => (
@@ -28,7 +30,7 @@ const arrows = [
                     >
                         <div
                         style={`background-image: url('${n.img}');`}
-                        class="aspect-square min-w-[350px] rounded-xl md:hover:border-2 bg-center bg-cover transition-all"
+                        class="aspect-square min-w-[300px] lg:min-w-[350px] rounded-xl md:hover:border-2 bg-center bg-cover transition-all"
                         />
                     </a>
                 </li>
