@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import SectionContainer from "@/components/sectionContainer.astro";
 import { myExample } from "@/data/productExample";
+import CollectedOpinion from "@/components/collectedOpinion.astro";
 
 const theParams = Astro.params['product'];
 
@@ -43,16 +44,9 @@ headerNavActive="none"
                 <h1 class="text-[2.8rem] text-yellow-200 font-bold">
                     {info.title}
                 </h1>
-                <p
-                class="text-xl opacity-70 font-semibold"
-                >
-                Opinion popular <span class="text-yellow-100">recolectada...</span>
-                    <span 
-                    class={`font-extrabold ${info.recolected_opinion > 2 ? 'text-green-500' : 'text-red-500'}`}
-                    >
-                        {`${info.recolected_opinion}/5`}
-                    </span>
-                </p>
+                <CollectedOpinion
+                collectedOpinion={info.recolected_opinion}
+                />
                 <div class="flex gap-2 pt-2">
                     {
                         info.content_tags.map(tag => (

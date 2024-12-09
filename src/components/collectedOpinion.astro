@@ -1,0 +1,19 @@
+---
+interface Props {
+    collectedOpinion: number
+    className?: string
+}
+
+const { collectedOpinion, className } = Astro.props;
+---
+
+<p
+class:list={["text-xl opacity-70 font-semibold", className]}
+>
+    Opinion popular <span class="text-yellow-100">recolectada...</span>
+    <span 
+    class={`font-extrabold ${collectedOpinion > 2 ? 'text-green-500' : 'text-red-500'}`}
+    >
+        {`${collectedOpinion}/5`}
+    </span>
+</p>

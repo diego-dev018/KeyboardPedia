@@ -1,0 +1,67 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SectionContainer from "@/components/sectionContainer.astro";
+
+import { fetchPages } from '@/utils/search';
+import CollectedOpinion from "@/components/collectedOpinion.astro";
+
+const query = new URL(Astro.request.url).searchParams.get('query') || '';
+const results = query ? fetchPages(query) : [];
+---
+
+<Layout
+title="KeyboardPedia - Busqueda"
+description="La mejor pagina de informacion sobre teclados mecanicos. Encuentra informacion sobre teclados mecanicos, switches, keycaps y mucho mas."
+headerNavActive=""
+>
+    <SectionContainer className="!mb-10">
+        <ol>
+            {
+                results?.map(result => (
+                    <li class="bg-slate-800 p-4 rounded-xl hover:scale-105 transition duration-300">
+                        <a
+                        class="flex w-full"
+                        href={`/info/${result.id}`}
+                        >
+                            <div
+                            style={`background-image: url('${result.main_image}');`}
+                            class="min-w-[350px] rounded-xl bg-center bg-cover"
+                            />
+                            <div class="pl-4">
+                                <div class="flex items-end gap-4">
+                                    <h2 class="font-bold text-4xl text-purple-400">{result.title}</h2>
+                                    <CollectedOpinion
+                                    className="!opacity-40"
+                                    collectedOpinion={result.recolected_opinion}
+                                    />
+                                </div>
+                                <p class="text-2xl font-semibold text-yellow-200 pb-4">{result.short_description}</p>
+                                <ol class="flex gap-8 pb-4">
+                                    {
+                                        result.description.map(desc => (
+                                            <li>
+                                                <h3
+                                                class="text-xl font-medium text-slate-400"
+                                                >
+                                                    {desc.title}
+                                                </h3>
+                                            </li>
+                                        ))
+                                    }
+                                </ol>
+                            </div>
+                        </a>
+                    </li>
+                ))
+            }
+        </ol>
+    </SectionContainer>
+</Layout>
+
+<style>
+    .descriptions {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>

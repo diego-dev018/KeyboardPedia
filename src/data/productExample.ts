@@ -50,6 +50,7 @@ export const myExample = [
             'https://store.nategentile.com/cdn/shop/files/teclado4.jpg',
             'https://store.nategentile.com/cdn/shop/files/teclado5.jpg',
         ],
+        main_image: 'https://store.nategentile.com/cdn/shop/files/teclado1.jpg',
         by: 'Nate Gentile',
         pages_seller: [
             {
