@@ -7,6 +7,8 @@ import CollectedOpinion from "@/components/collectedOpinion.astro";
 
 const query = new URL(Astro.request.url).searchParams.get('query') || '';
 const results = query ? fetchPages(query) : [];
+
+const padding_temp = results.length < 3 && results.length !== 0 ? 'py-[200px]' : 'py-0';
 ---
 
 <Layout
@@ -15,7 +17,7 @@ description="La mejor pagina de informacion sobre teclados mecanicos. Encuentra 
 headerNavActive=""
 >
     <SectionContainer className="!mb-10">
-        <ol class="flex flex-col gap-4">
+        <ol class:list={["flex flex-col gap-4", padding_temp]}>
             {
                 results?.map(result => (
                     <li class="bg-slate-800 hover:bg-[#25344d] p-4 rounded-xl transition duration-300">
@@ -54,6 +56,15 @@ headerNavActive=""
                 ))
             }
         </ol>
+        {
+            results.length === 0 && (
+                <h1
+                class="text-[3rem] font-extrabold text-center text-purple-400 py-[250px]"
+                >
+                    {'No se encontraron resultados :('}
+                </h1>
+            )
+        }
     </SectionContainer>
 </Layout>
 

@@ -4,11 +4,11 @@ export function fetchPages(query) {
     const lowerCaseQuery = query.toLowerCase();
     return myExample.filter(page => {
         for (let tag of page.search_tags) {
-            if (tag.toLowerCase().includes(lowerCaseQuery)) {
+            if (tag.toLowerCase() === lowerCaseQuery) {
                 return true
             }
         }
     });
 }
 
-// page.title.toLowerCase().includes(lowerCaseQuery)
+// tag.toLowerCase().includes(lowerCaseQuery)
