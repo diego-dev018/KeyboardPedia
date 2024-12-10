@@ -6,7 +6,7 @@ import { fetchPages } from '@/utils/search';
 import CollectedOpinion from "@/components/collectedOpinion.astro";
 
 const query = new URL(Astro.request.url).searchParams.get('query') || '';
-const results = query ? fetchPages(query) : [];
+const results = query ? await fetchPages(query) : [];
 
 const padding_temp = results.length < 3 && results.length !== 0 ? 'lg:py-[175px]' : 'lg:py-0';
 ---
@@ -39,7 +39,9 @@ headerNavActive=""
                                 <p class="text-2xl font-semibold text-yellow-200 pb-4">{result.short_description}</p>
                                 <ol class="hidden xl:flex flex-col lg:flex-row gap-4 lg:gap-8 pb-4">
                                     {
-                                        result.description.map(desc => (
+                                        result.description.map((desc: {
+                                            title: string
+                                        }) => (
                                             <li>
                                                 <h3
                                                 class="text-xl font-medium text-slate-400"
