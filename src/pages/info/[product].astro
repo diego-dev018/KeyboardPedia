@@ -32,7 +32,7 @@ headerNavActive="none"
             class="grid grid-cols-2 gap-3 rounded-xl overflow-y-scroll"
             >
                 {
-                    info.images.map((img) => (
+                    info.images.map((img: string) => (
                         <div
                         style={`background-image: url('${img}');`}
                         class="aspect-square bg-center bg-[size:180%] hover:bg-[size:200%] rounded-xl bg-slate-100 transition-all cursor-pointer"
@@ -51,7 +51,7 @@ headerNavActive="none"
                 />
                 <div class="flex gap-2 pt-2">
                     {
-                        info.content_tags.map(tag => (
+                        info.content_tags.map((tag: string) => (
                             <span class="text-sm bg-slate-800 text-slate-100 font-semibold px-3 pb-2 pt-1 rounded-xl cursor-default">
                                 {tag}
                             </span>
@@ -65,7 +65,10 @@ headerNavActive="none"
             >
                 <ul class="flex flex-col gap-4 opacity-80">
                     {
-                        info.description.map((p) => (
+                        info.description.map((p: {
+                            title: string,
+                            content: string
+                        }) => (
                             <li>
                                 <h2 class="text-2xl font-semibold">
                                     {p.title}
@@ -81,7 +84,10 @@ headerNavActive="none"
                     <h3 class="text-2xl font-bold pb-2">Incluye:</h3>
                     <ol class="flex flex-col gap-1 list-disc pl-5 opacity-95">
                         {
-                            info.include.map((item) => (
+                            info.include.map((item: {
+                                title: string,
+                                content: string
+                            }) => (
                                 <li class="text-lg">
                                     <p>
                                         <span class="font-semibold text-slate-300">
@@ -102,7 +108,10 @@ headerNavActive="none"
             <h3 class="text-3xl font-bold">{info.pages_seller.length > 1 ? 'Todos los vendedores' : 'Vendedor'}</h3>
             <ul>
                 {
-                    info.pages_seller.map(seller => (
+                    info.pages_seller.map((seller: {
+                        name: string,
+                        url: string
+                    }) => (
                         <li class="px-3 pb-2 pt-1 text-xl font-semibold bg-slate-800 text-slate-100 hover:bg-slate-700 rounded-lg transition duration-500">
                             <a
                             class="pb-[1px] border-b-[1px] border-b-slate-800 hover:border-b-yellow-200 transition-all duration-500"
