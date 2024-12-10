@@ -17,27 +17,27 @@ description="La mejor pagina de informacion sobre teclados mecanicos. Encuentra 
 headerNavActive=""
 >
     <SectionContainer className="!mb-10">
-        <ol class:list={["flex flex-col gap-4", padding_temp]}>
+        <ol class:list={["flex flex-col gap-4", `lg:${padding_temp}`]}>
             {
                 results?.map(result => (
-                    <li class="bg-slate-800 hover:bg-[#25344d] p-4 rounded-xl transition duration-300">
+                    <li class="bg-slate-800 hover:bg-[#25344d] p-2 lg:p-4 rounded-xl transition duration-300">
                         <a
-                        class="flex w-full"
+                        class="flex flex-col lg:flex-row gap-4 lg:gap-0 w-full"
                         href={`/info/${result.id}`}
                         >
                             <div
                             style={`background-image: url('${result.main_image}');`}
-                            class="min-w-[350px] rounded-xl bg-center bg-[length:100%_100%] hover:bg-[length:110%_110%] transition-all duration-300"
+                            class="aspect-square lg:min-w-[350px] rounded-xl bg-cover bg-center lg:bg-[length:100%_100%] lg:hover:bg-[length:110%_110%] transition-all duration-300"
                             />
-                            <div class="pl-4">
-                                <div class="flex items-end gap-4">
+                            <div class="px-2 lg:pr-0 lg:pl-4">
+                                <div class="flex flex-col lg:flex-row lg:items-end lg:gap-4 pb-4 lg:pb-0">
                                     <h2 class="font-bold text-4xl text-purple-400">{result.title}</h2>
                                     <CollectedOpinion
                                     collectedOpinion={result.recolected_opinion}
                                     />
                                 </div>
                                 <p class="text-2xl font-semibold text-yellow-200 pb-4">{result.short_description}</p>
-                                <ol class="flex gap-8 pb-4">
+                                <ol class="hidden lg:flex flex-col lg:flex-row gap-4 lg:gap-8 pb-4">
                                     {
                                         result.description.map(desc => (
                                             <li>
