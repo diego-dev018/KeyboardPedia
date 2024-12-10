@@ -1,0 +1,80 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SectionContainer from "@/components/sectionContainer.astro";
+import CollectedOpinion from "@/components/collectedOpinion.astro";
+
+import { fetchPagesForCategory } from '@/utils/searchCat';
+
+const params = Astro.params['cat'];
+
+const results = params ? await fetchPagesForCategory(params) : [];
+
+const padding_temp = results.length < 3 && results.length !== 0 ? 'lg:py-[175px]' : 'lg:py-0';
+---
+
+<Layout
+title="KeyboardPedia - Busqueda"
+description="La mejor pagina de informacion sobre teclados mecanicos. Encuentra informacion sobre teclados mecanicos, switches, keycaps y mucho mas."
+headerNavActive=""
+>
+    <SectionContainer className="!mb-10">
+        <ol class:list={["flex flex-col gap-4", padding_temp]}>
+            {
+                results?.map(result => (
+                    <li class="bg-slate-800 hover:bg-[#25344d] p-2 lg:p-4 rounded-xl transition duration-300">
+                        <a
+                        class="flex flex-col lg:flex-row gap-4 lg:gap-0 w-full"
+                        href={`/info/${result.id}`}
+                        >
+                            <div
+                            style={`background-image: url('${result.main_image}');`}
+                            class="aspect-square sm:aspect-video lg:min-w-[350px] rounded-xl bg-cover bg-center transition duration-300"
+                            />
+                            <div class="px-2 lg:pr-0 lg:pl-4">
+                                <div class="flex flex-col xl:flex-row lg:items-end lg:gap-4 pb-4 lg:pb-0">
+                                    <h2 class="font-bold text-4xl text-purple-400">{result.title}</h2>
+                                    <CollectedOpinion
+                                    collectedOpinion={result.recolected_opinion}
+                                    />
+                                </div>
+                                <p class="text-2xl font-semibold text-yellow-200 pb-4">{result.short_description}</p>
+                                <ol class="hidden xl:flex flex-col lg:flex-row gap-4 lg:gap-8 pb-4">
+                                    {
+                                        result.description.map((desc: {
+                                            title: string
+                                        }) => (
+                                            <li>
+                                                <h3
+                                                class="text-xl font-medium text-slate-400"
+                                                >
+                                                    {desc.title}
+                                                </h3>
+                                            </li>
+                                        ))
+                                    }
+                                </ol>
+                            </div>
+                        </a>
+                    </li>
+                ))
+            }
+        </ol>
+        {
+            results.length === 0 && (
+                <h1
+                class="text-[3rem] font-extrabold text-center text-purple-400 py-[250px]"
+                >
+                    {'No se encontraron resultados :('}
+                </h1>
+            )
+        }
+    </SectionContainer>
+</Layout>
+
+<style>
+    .descriptions {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>

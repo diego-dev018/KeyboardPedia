@@ -2,46 +2,46 @@ export const categoriesForPage = [
     {
         name: "Keyboards",
         bg_img: "",
-        href: "/keyboards",
+        href: "/categories/keyboard",
     },
     {
         name: "Switches",
         bg_img: "",
-        href: "/switches",
+        href: "/categories/switch",
     },
     {
         name: "Keycaps",
         bg_img: "",
-        href: "/keycaps",
+        href: "/categories/keycap",
     },
     {
         name: "Pcb",
         bg_img: "",
-        href: "/pcb",
+        href: "/categories/pcb",
     },
     {
         name: "Plate",
         bg_img: "",
-        href: "/plate",
+        href: "/categories/plate",
     },
     {
         name: "Case",
         bg_img: "",
-        href: "/case",
+        href: "/categories/case",
     },
     {
         name: "Stabilizer",
         bg_img: "",
-        href: "/stabilizer",
+        href: "/categories/stabilizer",
     },
     {
         name: "Cables",
         bg_img: "",
-        href: "/cables",
+        href: "/categories/cable",
     },
     {
         name: "Shock Absorber",
         bg_img: "",
-        href: "/shockAbsorber",
+        href: "/categories/shockAbsorber",
     },
 ];
