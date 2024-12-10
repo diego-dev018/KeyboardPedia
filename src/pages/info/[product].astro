@@ -1,12 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import SectionContainer from "@/components/sectionContainer.astro";
-import { myExample } from "@/data/productExample";
+import { getInfo } from "@/utils/get_info";
 import CollectedOpinion from "@/components/collectedOpinion.astro";
 
 const theParams = Astro.params['product'];
 
-const info = myExample.find((product) => product.id === theParams);
+const results = await getInfo();
+
+const info = results?.find((product) => product.id === theParams);
 
 if (!info) {
     return Astro.redirect('/404', 404);

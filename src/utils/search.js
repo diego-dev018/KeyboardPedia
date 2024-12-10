@@ -1,8 +1,12 @@
-import { myExample } from '@/data/productExample';
+import { getInfo } from '@/utils/get_info'
 
-export function fetchPages(query) {
+export async function fetchPages(query) {
     const lowerCaseQuery = query.toLowerCase();
-    return myExample.filter(page => {
+    const info = await getInfo();
+
+    console.log(lowerCaseQuery)
+
+    return info.filter(page => {
         for (let tag of page.search_tags) {
             if (tag.toLowerCase().includes(lowerCaseQuery) && lowerCaseQuery.length >= 4) {
                 return true
@@ -10,5 +14,6 @@ export function fetchPages(query) {
         }
     });
 }
+
 
 // tag.toLowerCase().includes(lowerCaseQuery)
