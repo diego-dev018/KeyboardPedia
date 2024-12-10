@@ -8,7 +8,7 @@ import CollectedOpinion from "@/components/collectedOpinion.astro";
 const query = new URL(Astro.request.url).searchParams.get('query') || '';
 const results = query ? fetchPages(query) : [];
 
-const padding_temp = results.length < 3 && results.length !== 0 ? 'lg:py-[200px]' : 'lg:py-0';
+const padding_temp = results.length < 3 && results.length !== 0 ? 'lg:py-[175px]' : 'lg:py-0';
 ---
 
 <Layout
@@ -27,17 +27,17 @@ headerNavActive=""
                         >
                             <div
                             style={`background-image: url('${result.main_image}');`}
-                            class="aspect-square lg:aspect-video lg:min-w-[350px] rounded-xl bg-cover bg-center lg:bg-[length:100%_100%] lg:hover:bg-[length:110%_110%] transition-all duration-300"
+                            class="aspect-square sm:aspect-video lg:min-w-[350px] rounded-xl bg-cover bg-center lg:bg-[length:100%_100%] lg:hover:bg-[length:110%_110%] transition-all duration-300"
                             />
                             <div class="px-2 lg:pr-0 lg:pl-4">
-                                <div class="flex flex-col lg:flex-row lg:items-end lg:gap-4 pb-4 lg:pb-0">
+                                <div class="flex flex-col xl:flex-row lg:items-end lg:gap-4 pb-4 lg:pb-0">
                                     <h2 class="font-bold text-4xl text-purple-400">{result.title}</h2>
                                     <CollectedOpinion
                                     collectedOpinion={result.recolected_opinion}
                                     />
                                 </div>
                                 <p class="text-2xl font-semibold text-yellow-200 pb-4">{result.short_description}</p>
-                                <ol class="hidden lg:flex flex-col lg:flex-row gap-4 lg:gap-8 pb-4">
+                                <ol class="hidden xl:flex flex-col lg:flex-row gap-4 lg:gap-8 pb-4">
                                     {
                                         result.description.map(desc => (
                                             <li>
