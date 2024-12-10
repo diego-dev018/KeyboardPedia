@@ -25,7 +25,7 @@ headerNavActive="none"
         <div class="flex flex-col gap-4 h-[810px]">
             <div
             style={`background-image: url('${info.images[0]}');`}
-            class="w-[30rem] aspect-[14/9] bg-center bg-cover rounded-xl bg-slate-100"
+            class="w-auto lg:w-[30rem] aspect-[14/9] bg-center bg-cover rounded-xl bg-slate-100"
             />
             <div
             id="gallery"
@@ -41,7 +41,7 @@ headerNavActive="none"
                 }
             </div>
         </div>
-        <div class="flex flex-col gap-5 h-[810px]">
+        <div class="flex flex-col gap-5 lg:h-[810px]">
             <div>
                 <h1 class="text-[2.8rem] text-yellow-200 font-bold">
                     {info.title}
@@ -61,7 +61,7 @@ headerNavActive="none"
             </div>
             <div
             id="info_container"
-            class="overflow-y-scroll h-[100%] rounded-lg"
+            class="lg:overflow-y-scroll lg:h-[100%] rounded-lg"
             >
                 <ul class="flex flex-col gap-4 opacity-80">
                     {
