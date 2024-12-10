@@ -8,7 +8,7 @@ import CollectedOpinion from "@/components/collectedOpinion.astro";
 const query = new URL(Astro.request.url).searchParams.get('query') || '';
 const results = query ? fetchPages(query) : [];
 
-const padding_temp = results.length < 3 && results.length !== 0 ? 'py-[200px]' : 'py-0';
+const padding_temp = results.length < 3 && results.length !== 0 ? 'lg:py-[200px]' : 'lg:py-0';
 ---
 
 <Layout
@@ -17,7 +17,7 @@ description="La mejor pagina de informacion sobre teclados mecanicos. Encuentra 
 headerNavActive=""
 >
     <SectionContainer className="!mb-10">
-        <ol class:list={["flex flex-col gap-4", `lg:${padding_temp}`]}>
+        <ol class:list={["flex flex-col gap-4", padding_temp]}>
             {
                 results?.map(result => (
                     <li class="bg-slate-800 hover:bg-[#25344d] p-2 lg:p-4 rounded-xl transition duration-300">
