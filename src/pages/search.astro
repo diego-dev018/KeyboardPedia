@@ -15,23 +15,22 @@ description="La mejor pagina de informacion sobre teclados mecanicos. Encuentra 
 headerNavActive=""
 >
     <SectionContainer className="!mb-10">
-        <ol>
+        <ol class="flex flex-col gap-4">
             {
                 results?.map(result => (
-                    <li class="bg-slate-800 p-4 rounded-xl hover:scale-105 transition duration-300">
+                    <li class="bg-slate-800 hover:bg-[#25344d] p-4 rounded-xl transition duration-300">
                         <a
                         class="flex w-full"
                         href={`/info/${result.id}`}
                         >
                             <div
                             style={`background-image: url('${result.main_image}');`}
-                            class="min-w-[350px] rounded-xl bg-center bg-cover"
+                            class="min-w-[350px] rounded-xl bg-center bg-[length:100%_100%] hover:bg-[length:110%_110%] transition-all duration-300"
                             />
                             <div class="pl-4">
                                 <div class="flex items-end gap-4">
                                     <h2 class="font-bold text-4xl text-purple-400">{result.title}</h2>
                                     <CollectedOpinion
-                                    className="!opacity-40"
                                     collectedOpinion={result.recolected_opinion}
                                     />
                                 </div>

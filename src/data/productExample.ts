@@ -65,6 +65,7 @@ export const myExample = [
         ],
         search_tags: [
             'teclado',
+            'keyboard',
             'nate-gentile',
             'cycle-n8',
             'founders-edition',
@@ -73,5 +74,5 @@ export const myExample = [
             'by-influencer',
         ],
         recolected_opinion: 5,
-    }
+    },
 ]
