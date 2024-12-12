@@ -1,5 +1,5 @@
 ---
-import SearchBar from './searchBar.astro';
+import SearchBar from '@/components/searchBar.astro';
 
 interface Props {
     active: string;
@@ -11,17 +11,20 @@ const buttons = [
     {
         name: "Inicio",
         href: active == "Inicio" ? null : "/",
-        cursor: "pointer"
+        cursor: "pointer",
+        className: ""
     },
     {
         name: "Categorias",
         href: "/categories",
         cursor: "pointer",
+        className: ""
     },
     {
         name: "Sobre nosotros",
         href: active == "Sobre nosotros" ? null : "/about-us",
-        cursor: "pointer"
+        cursor: "pointer",
+        className: "!hidden sm:!block"
     },
 ]
 ---
@@ -30,7 +33,7 @@ const buttons = [
     <h1 class="text-[2.5rem] sm:text-[3rem] xl:text-3xl font-extrabold cursor-default">
         KeyBoardPedia
     </h1>
-    <ul class="flex flex-col sm:flex-row gap-4">
+    <ul class="flex gap-4">
         {
             buttons.map(n => (
                 <li class={`hover:scale-110 transition w-fit mx-auto`}>
@@ -39,7 +42,7 @@ const buttons = [
                     href={n.href}
                     class:list={[
                         active === n.name ? "text-white" : "text-gray-400",
-                        "text-xl font-semibold pb-2 pt-1 px-4 rounded-xl border-[1px] border-slate-700 hover:border-slate-500 hover:bg-slate-800 transition",
+                        "text-xl font-semibold pb-2 pt-1 px-4 rounded-xl border-[1px] border-slate-700 hover:border-slate-500 hover:bg-slate-800 transition", n.className
                     ]}>
                         {n.name}
                     </a>
