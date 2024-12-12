@@ -8,11 +8,18 @@ const links = [
     {
         name: "Mi Portfolio",
         url: "https://www.diego18.pro/",
+        className: "",
     },
     {
         name: "Repositorio del Proyecto",
         url: "https://github.com/diego-dev018/KeyboardPedia",
+        className: "",
     },
+    {
+        name: "Donar",
+        url: "/",
+        className: "col-span-2 h-20 sm:h-auto",
+    }
 ]
 ---
 
@@ -41,32 +48,28 @@ headerNavActive="Sobre nosotros"
     <SectionContainer
     className="!py-0 !mb-2 !mt-0"
     >
-        <ul class="flex gap-2 justify-between">
+        <ul class="flex flex-col sm:grid sm:grid-cols-2 gap-3">
             {
                 links.map((link) => (
                     <a
                     href={link.url}
-                    class="flex items-center justify-center text-xl bg-slate-800 hover:bg-slate-700 rounded-xl text-center font-semibold w-full py-3 transition duration-500"
+                    class:list={["flex items-center justify-center text-xl bg-slate-800 hover:bg-slate-700 rounded-xl text-center font-semibold transition duration-500", link.className]}
                     target="_blank"
                     >
-                        <p>{link.name}</p>
+                        <p
+                        class="py-3 w-full font-bold text-center duration-300 hover:scale-110 hover:text-yellow-200 transition"
+                        >
+                            {link.name}
+                        </p>
                     </a>
                 ))
             }
         </ul>
     </SectionContainer>
-    <SectionContainer className="flex w-full !pt-0 !py-0 !mt-0 !mb-0">
-        <a
-        class="text-2xl bg-slate-800 hover:bg-slate-700 rounded-xl text-center font-extrabold italic px-2 py-1 w-full transition duration-500"
-        href="/"
-        target="_blank"
-        >
-            <p class="hover:scale-105 lg:hover:scale-110 hover:text-yellow-200 py-2 lg:py-4 transition">
-                Donar
-            </p>
-        </a>
-    </SectionContainer>
     <p
     onclick="this.classList.add('!opacity-0');"
-    class="w-fit mx-auto !mt-0 !mb-12 font-semibold opacity-55 animate-bounce italic py-6 cursor-default transition">Gracias :)</p>
+    class="w-fit mx-auto !mt-0 !mb-12 font-semibold opacity-55 animate-bounce italic py-6 cursor-default transition"
+    >
+        {"Gracias :)"}
+    </p>
 </Layout>
