@@ -1,0 +1,50 @@
+---
+import { getContributors } from '@/utils/getContributors';
+import SectionContainer from './sectionContainer.astro';
+import SubtitleContainer from './subtitleContainer.astro';
+
+const contributors = await getContributors();
+---
+<SectionContainer className="!py-0 !px-0 !mb-16 !mt-0">
+    <SubtitleContainer
+    subtitle="Top 10 colaboradores de este proyecto"
+    className="!pb-0 px-6 md:px-28"
+    />
+    <ul
+    class="flex gap-3 overflow-x-scroll px-6 py-4 md:px-28"
+    id="contributors-gallery"
+    >
+        {
+            contributors.map((contributor: {
+                login: string;
+                avatar_url: string;
+                html_url: string;
+                contributions: number;
+            }) => (
+                <li class="bg-slate-800 rounded-md hover:scale-105 transition">
+                    <a
+                    target="_blank"
+                    href={contributor.html_url}
+                    >
+                        <div
+                        class="w-56 aspect-square bg-cover bg-center"
+                        style={`background-image: url(${contributor.avatar_url})`}
+                        />
+                        <h5 class="text-center text-purple-300 text-2xl font-semibold pt-1">
+                            {contributor.login}
+                        </h5>
+                        <p class="text-center text-sm font-medium text-slate-400 pb-2">
+                            {contributor.contributions} {contributor.contributions === 1 ? 'contribución' : 'contribuciones'}
+                        </p>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</SectionContainer>
+
+<style>
+    #contributors-gallery {
+        scrollbar-width: none;
+    }
+</style>

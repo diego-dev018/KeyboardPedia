@@ -1,4 +1,4 @@
-import { getInfo } from '@/utils/get_info'
+import { getInfo } from '@/utils/getInfo'
 
 export async function fetchPagesForCategory(params) {
     const lowerCaseParam = params.toLowerCase();

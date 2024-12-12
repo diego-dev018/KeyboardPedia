@@ -1,4 +1,4 @@
-import { getInfo } from '@/utils/get_info'
+import { getInfo } from '@/utils/getInfo'
 
 export async function fetchPages(query) {
     const lowerCaseQuery = query.toLowerCase();
