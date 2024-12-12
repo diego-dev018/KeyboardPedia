@@ -1,0 +1,55 @@
+---
+import CollectedOpinion from '@/components/collectedOpinion.astro';
+
+interface Props {
+    id: string;
+    main_image: string;
+    title: string;
+    recolected_opinion: number;
+    short_description: string;
+    description: {
+        title: string;
+    }[];
+}
+
+const {
+    id, main_image, title, recolected_opinion, short_description, description
+} = Astro.props;
+---
+
+
+<li class="bg-slate-800 hover:bg-[#25344d] p-2 lg:p-4 rounded-xl transition duration-300">
+    <a
+    class="flex flex-col lg:flex-row gap-4 lg:gap-0 w-full"
+    href={`/info/${id}`}
+    >
+        <div
+        style={`background-image: url('${main_image}');`}
+        class="aspect-square sm:aspect-video lg:min-w-[350px] rounded-xl bg-cover bg-center transition duration-300"
+        />
+        <div class="px-2 lg:pr-0 lg:pl-4">
+            <div class="flex flex-col xl:flex-row lg:items-end lg:gap-4 pb-4 lg:pb-0">
+                <h2 class="font-bold text-4xl text-purple-400">{title}</h2>
+                <CollectedOpinion
+                collectedOpinion={recolected_opinion}
+                />
+            </div>
+            <p class="text-2xl font-semibold text-yellow-200 pb-4">{short_description}</p>
+            <ol class="hidden xl:flex flex-col lg:flex-row gap-4 lg:gap-8 pb-4">
+                {
+                    description.map((desc: {
+                        title: string
+                    }) => (
+                        <li>
+                            <h3
+                            class="text-xl font-medium text-slate-400"
+                            >
+                                {desc.title}
+                            </h3>
+                        </li>
+                    ))
+                }
+            </ol>
+        </div>
+    </a>
+</li>
