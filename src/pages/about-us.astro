@@ -46,10 +46,10 @@ headerNavActive="Sobre nosotros"
                 links.map((link) => (
                     <a
                     href={link.url}
-                    class="text-xl bg-slate-800 hover:bg-slate-700 rounded-xl text-center font-semibold w-full py-3 transition duration-500"
+                    class="flex items-center justify-center text-xl bg-slate-800 hover:bg-slate-700 rounded-xl text-center font-semibold w-full py-3 transition duration-500"
                     target="_blank"
                     >
-                        {link.name}
+                        <p>{link.name}</p>
                     </a>
                 ))
             }
