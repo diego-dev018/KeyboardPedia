@@ -1,0 +1,48 @@
+---
+import SectionContainer from "@/components/sectionContainer.astro";
+
+const links = [
+    {
+        name: "Mi Portfolio",
+        url: "https://www.diego18.pro/",
+        className: "",
+    },
+    {
+        name: "Repositorio del Proyecto",
+        url: "https://github.com/diego-dev018/KeyboardPedia",
+        className: "",
+    },
+    {
+        name: "Donar",
+        url: "/",
+        className: "col-span-2 h-20 sm:h-auto",
+        textSize: "l"
+    }
+]
+---
+<SectionContainer
+className="!py-0 !mb-2 !mt-0"
+>
+    <ul class="flex flex-col sm:grid sm:grid-cols-2 gap-3">
+        {
+            links.map((link: {
+                url: string,
+                className: string,
+                name: string,
+                textSize?: string
+            }) => (
+                <a
+                href={link.url}
+                class:list={["flex items-center justify-center text-xl bg-slate-800 hover:bg-slate-700 rounded-xl text-center font-semibold transition duration-500", link.className]}
+                target="_blank"
+                >
+                    <p
+                    class:list={["py-3 w-full font-bold text-center duration-300 hover:scale-110 hover:text-yellow-200 transition", link.textSize ? link.textSize : "text-xl"]}
+                    >
+                        {link.name}
+                    </p>
+                </a>
+            ))
+        }
+    </ul>
+</SectionContainer>

@@ -2,25 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import SectionContainer from '@/components/sectionContainer.astro';
 import TextCite from '@/components/textCite.astro';
-
-
-const links = [
-    {
-        name: "Mi Portfolio",
-        url: "https://www.diego18.pro/",
-        className: "",
-    },
-    {
-        name: "Repositorio del Proyecto",
-        url: "https://github.com/diego-dev018/KeyboardPedia",
-        className: "",
-    },
-    {
-        name: "Donar",
-        url: "/",
-        className: "col-span-2 h-20 sm:h-auto",
-    }
-]
+import AboutUsButtons from '@/components/aboutUsButtons.astro';
 ---
 
 <Layout
@@ -29,47 +11,25 @@ description="Descripcion sobre las metas y objetivos de la pagina. Ademas de con
 headerNavActive="Sobre nosotros"
 >
     <SectionContainer className="flex flex-col lg:flex-row gap-4 w-full !mb-10">
-        <div>
-            <p class="text-xl xl:text-2xl font-medium">
-                Hola, mi nombre es <TextCite>Diego Sánchez,</TextCite>y estoy emocionado de compartir un poco sobre mí y mis intereses contigo. Actualmente, soy estudiante de <TextCite>Ingeniería en Desarrollo de Software,</TextCite> un campo que me apasiona.<br><br>
+        <p class="text-xl xl:text-2xl font-medium">
+            Hola, mi nombre es <TextCite>Diego Sánchez,</TextCite>y estoy emocionado de compartir un poco sobre mí y mis intereses contigo. Actualmente, soy estudiante de <TextCite>Ingeniería en Desarrollo de Software,</TextCite> un campo que me apasiona.<br><br>
 
-                Decidí emprender este proyecto como una forma de explorar y compartir uno de mis grandes intereses en el mundo de la tecnología: <TextCite>Los teclados mecánicos personalizados.</TextCite>Aunque no soy un experto ni tengo una extensa colección, este tema me resulta fascinante. Hay algo especial en la posibilidad de personalizar completamente un teclado según tus necesidades, preferencias y estilo personal.<br><br>
+            Decidí emprender este proyecto como una forma de explorar y compartir uno de mis grandes intereses en el mundo de la tecnología: <TextCite>Los teclados mecánicos personalizados.</TextCite>Aunque no soy un experto ni tengo una extensa colección, este tema me resulta fascinante. Hay algo especial en la posibilidad de personalizar completamente un teclado según tus necesidades, preferencias y estilo personal.<br><br>
 
-                <TextCite>Los teclados mecánicos personalizados ofrecen una libertad que simplemente no puedes encontrar en los teclados comerciales.</TextCite> Desde la elección de los switches (que determinan la sensación y el sonido al escribir) hasta los keycaps (las cubiertas de las teclas), el layout (el diseño de la disposición de las teclas) y la estética general, todo puede adaptarse a tus gustos específicos. Más allá de lo visual, también tienen la ventaja de ser una opción más duradera, con mejor relación calidad-precio en muchos casos, y ofrecen características adicionales que pueden mejorar la experiencia de escritura o gaming.<br><br>
+            <TextCite>Los teclados mecánicos personalizados ofrecen una libertad que simplemente no puedes encontrar en los teclados comerciales.</TextCite> Desde la elección de los switches (que determinan la sensación y el sonido al escribir) hasta los keycaps (las cubiertas de las teclas), el layout (el diseño de la disposición de las teclas) y la estética general, todo puede adaptarse a tus gustos específicos. Más allá de lo visual, también tienen la ventaja de ser una opción más duradera, con mejor relación calidad-precio en muchos casos, y ofrecen características adicionales que pueden mejorar la experiencia de escritura o gaming.<br><br>
 
-                Esta pagina esta hecha con el fin de ser minimalista y con el unico motivo de compartir informacion sobre el tema.<br><br>
+            Esta pagina esta hecha con el fin de ser minimalista y con el unico motivo de compartir informacion sobre el tema.<br><br>
 
-                Espero que disfrutes explorando esta parte de mi portafolio y que encuentres información interesante que te inspire a conocer más sobre este fascinante hobby.<br><br>
+            Espero que disfrutes explorando esta parte de mi portafolio y que encuentres información interesante que te inspire a conocer más sobre este fascinante hobby.<br><br>
 
-                <TextCite>Si deseas apoyar a este proyecto, puedes hacerlo a través de una contribucion monetarea o sobre la informacion.</TextCite>
-            </p>
-        </div>
+            <TextCite>Si deseas apoyar a este proyecto, puedes hacerlo a través de una contribucion monetarea o sobre la informacion.</TextCite>
+        </p>
     </SectionContainer>
-    <SectionContainer
-    className="!py-0 !mb-2 !mt-0"
-    >
-        <ul class="flex flex-col sm:grid sm:grid-cols-2 gap-3">
-            {
-                links.map((link) => (
-                    <a
-                    href={link.url}
-                    class:list={["flex items-center justify-center text-xl bg-slate-800 hover:bg-slate-700 rounded-xl text-center font-semibold transition duration-500", link.className]}
-                    target="_blank"
-                    >
-                        <p
-                        class="py-3 w-full font-bold text-center duration-300 hover:scale-110 hover:text-yellow-200 transition"
-                        >
-                            {link.name}
-                        </p>
-                    </a>
-                ))
-            }
-        </ul>
-    </SectionContainer>
+    <AboutUsButtons />
     <p
     onclick="this.classList.add('!opacity-0');"
     class="w-fit mx-auto !mt-0 !mb-12 font-semibold opacity-55 animate-bounce italic py-6 cursor-default transition"
     >
-        {"Gracias :)"}
+        { "Gracias :)" }
     </p>
 </Layout>
