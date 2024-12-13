@@ -27,6 +27,7 @@ headerNavActive="none"
         <div class="lg:sticky top-5 h-fit">
             <div class="flex flex-col gap-4">
                 <div
+                id="main_image"
                 style={`background-image: url('${info.images[0]}');`}
                 class="w-auto lg:w-[30rem] aspect-[14/9] bg-center bg-cover rounded-xl bg-slate-100"
                 />
@@ -90,3 +91,24 @@ headerNavActive="none"
         scrollbar-width: none;
     }
 </style>
+
+<script>
+    const gallery = document.querySelectorAll('.image-gallery');
+    const mainImage = document.querySelector('#main_image') as HTMLElement;
+
+    const style = 'bg-[size:200%]';
+    let imgClicked: HTMLElement | null = null;
+    
+    gallery.forEach((img) => {
+        img.addEventListener('click', () => {
+            if (mainImage && imgClicked !== img) {
+                mainImage.style.backgroundImage = (img as HTMLElement).style.backgroundImage;
+                if (imgClicked) {
+                    imgClicked.classList.remove(style);
+                }
+                img.classList.add(style);
+                imgClicked = img as HTMLElement;
+            }
+        });
+    });
+</script>
