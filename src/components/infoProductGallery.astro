@@ -1,0 +1,26 @@
+---
+interface Props {
+    id?: string;
+    images: string[];
+}
+const {  images, id = "gallery" } = Astro.props;
+---
+<div
+id={id}
+class="flex overflow-x-scroll snap-x snap-proximity lg:snap-none h-36 lg:h-fit lg:grid lg:grid-cols-2 gap-3 rounded-xl"
+>
+    {
+        images.map((img: string) => (
+            <div
+            style={`background-image: url('${img}');`}
+            class="aspect-square bg-center bg-[size:180%] md:hover:bg-[size:200%] rounded-xl bg-slate-100 transition-all snap-center cursor-pointer image-gallery"
+            />
+        ))
+    }
+</div>
+
+<style>
+    #gallery {
+        scrollbar-width: none;
+    }
+</style>
