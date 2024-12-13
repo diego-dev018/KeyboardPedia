@@ -1,0 +1,25 @@
+---
+interface Props {
+    images: string[];
+}
+const {  images } = Astro.props;
+---
+<div
+id="gallery"
+class="flex overflow-x-scroll h-36 lg:h-fit lg:grid lg:grid-cols-2 gap-3 rounded-xl"
+>
+    {
+        images.map((img: string) => (
+            <div
+            style={`background-image: url('${img}');`}
+            class="aspect-square bg-center bg-[size:180%] hover:bg-[size:200%] rounded-xl bg-slate-100 transition-all cursor-pointer"
+            />
+        ))
+    }
+</div>
+
+<style>
+    #gallery {
+        scrollbar-width: none;
+    }
+</style>

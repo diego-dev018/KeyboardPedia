@@ -3,6 +3,8 @@ import Layout from "@/layouts/Layout.astro";
 import SectionContainer from "@/components/sectionContainer.astro";
 import { getInfo } from "@/utils/getInfo";
 import CollectedOpinion from "@/components/collectedOpinion.astro";
+import InfoProductGallery from "@/components/infoProductGallery.astro";
+import InfoProductContent from "@/components/infoProductContent.astro";
 
 const theParams = Astro.params['product'];
 
@@ -28,19 +30,7 @@ headerNavActive="none"
                 style={`background-image: url('${info.images[0]}');`}
                 class="w-auto lg:w-[30rem] aspect-[14/9] bg-center bg-cover rounded-xl bg-slate-100"
                 />
-                <div
-                id="gallery"
-                class="flex overflow-x-scroll h-36 lg:h-fit lg:grid lg:grid-cols-2 gap-3 rounded-xl"
-                >
-                    {
-                        info.images.map((img: string) => (
-                            <div
-                            style={`background-image: url('${img}');`}
-                            class="aspect-square bg-center bg-[size:180%] hover:bg-[size:200%] rounded-xl bg-slate-100 transition-all cursor-pointer"
-                            />
-                        ))
-                    }
-                </div>
+                <InfoProductGallery images={info.images} />
             </div>
         </div>
         <div class="flex flex-col gap-5">
@@ -65,43 +55,7 @@ headerNavActive="none"
             id="info_container"
             class="rounded-lg"
             >
-                <ul class="flex flex-col gap-4 opacity-80">
-                    {
-                        info.description.map((p: {
-                            title: string,
-                            content: string
-                        }) => (
-                            <li>
-                                <h2 class="text-2xl font-semibold">
-                                    {p.title}
-                                </h2>
-                                <p class="text-lg">
-                                    {p.content}
-                                </p>
-                            </li>
-                        ))
-                    }
-                </ul>
-                <div class="border-t-[1px] border-t-slate-700 mt-10 pt-10">
-                    <h3 class="text-2xl font-bold pb-2">Incluye:</h3>
-                    <ol class="flex flex-col gap-1 list-disc pl-5 opacity-95">
-                        {
-                            info.include.map((item: {
-                                title: string,
-                                content: string
-                            }) => (
-                                <li class="text-lg">
-                                    <p>
-                                        <span class="font-semibold text-slate-300">
-                                            {`${item.title}:`}
-                                        </span>
-                                        {item.content}
-                                    </p>
-                                </li>
-                            ))
-                        }
-                    </ol>
-                </div>
+                <InfoProductContent description={info.description} include={info.include} />
             </div>
         </div>
     </div>
@@ -132,7 +86,7 @@ headerNavActive="none"
 </Layout>
 
 <style>
-    #gallery, #info_container {
+    #info_container {
         scrollbar-width: none;
     }
 </style>
