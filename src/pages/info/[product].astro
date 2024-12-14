@@ -5,6 +5,7 @@ import { getInfo } from "@/utils/getInfo";
 import CollectedOpinion from "@/components/collectedOpinion.astro";
 import InfoProductGallery from "@/components/infoProductGallery.astro";
 import InfoProductContent from "@/components/infoProductContent.astro";
+import InfoExtraLinks from "@/components/infoExtraLinks.astro";
 
 const theParams = Astro.params['product'];
 
@@ -61,27 +62,10 @@ headerNavActive="none"
         </div>
     </div>
     <div class="flex justify-around">
-        <div class="flex flex-col gap-2 items-center pt-16">
-            <h3 class="text-3xl font-bold">{info.pages_seller.length > 1 ? 'Todos los vendedores' : 'Vendedor'}</h3>
-            <ul>
-                {
-                    info.pages_seller.map((seller: {
-                        name: string,
-                        url: string
-                    }) => (
-                        <li class="px-3 pb-2 pt-1 text-xl font-semibold bg-slate-800 text-slate-100 hover:bg-slate-700 rounded-lg transition duration-500">
-                            <a
-                            class="pb-[1px] border-b-[1px] border-b-slate-800 hover:border-b-yellow-200 transition-all duration-500"
-                            href={seller.url} 
-                            target="_blank"
-                            >
-                                {seller.name}
-                            </a>
-                        </li>
-                    ))
-                }
-            </ul>
-        </div>
+        <InfoExtraLinks
+        title={info.pages_seller.length > 1 ? 'Todos los vendedores' : 'Vendedor'}
+        pages_seller={info.pages_seller}
+        />
     </div>
 </SectionContainer>
 </Layout>
